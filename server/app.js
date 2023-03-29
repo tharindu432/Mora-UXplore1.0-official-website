@@ -13,7 +13,7 @@ const corsOptions = require('./config/corsOptions');
 const teamRoutes = require('./routes/teamRoutes');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
-const createAdminUserIfNotExists = require('./utils/createAdminUserIfNotExists');
+//const createAdminUserIfNotExists = require('./utils/createAdminUserIfNotExists');
 
 const app = express();
 
@@ -58,7 +58,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(createAdminUserIfNotExists);
+//app.use(createAdminUserIfNotExists);
 // ROUTES
 app.use('/api/v1/teams', teamRoutes);
 

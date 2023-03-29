@@ -49,16 +49,11 @@ exports.signUp = catchAsync(async (req, res, next) => {
     email,
   });
 
-  console.log(newTeam);
-
   const activateToken = newTeam.createActivationString();
-  console.log(activateToken);
 
   const activateURL = `${req.protocol}://${req.get(
     'host'
   )}/api/v1/teams/activate/${activateToken}`;
-
-  console.log(activateURL);
 
   await new Email(newTeam, activateURL).sendVerificationToken();
 
@@ -90,6 +85,38 @@ exports.login = catchAsync(async (req, res, next) => {
   // 03.) Send token to client
   createSendToken(team, 200, res);
   console.log(`${email} successfully logged in !`);
+});
+
+//* Team Activation
+
+exports.activateTeam = catchAsync(async (req, res, next) => {
+  const hashedToken = crypto
+    .createHash('sha256')
+    .update(req.params.token)
+    .digest('hex');
+
+  // console.log(hashedToken);
+
+  const team = await Team.findOne({
+    activationString: hashedToken,
+    emailVerified: false,
+  });
+
+  if (!team) {
+    return next(new AppError('Already verified or Invalid token', 400));
+  }
+
+  team.emailVerified = true;
+  team.activationString = undefined;
+  await team.save({ validateBeforeSave: false });
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Email verified successfully',
+    data: {
+      team: team._id,
+    },
+  });
 });
 
 //* Implementing Protected Routes

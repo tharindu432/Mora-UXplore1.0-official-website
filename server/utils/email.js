@@ -12,16 +12,16 @@ module.exports = class Email {
   }
 
   newTransport() {
-    if (process.env.NODE_ENV.trim() === 'production') {
-      // Google API
-      return nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'yourgmailusername@gmail.com',
-          pass: 'yourgmailpassword',
-        },
-      });
-    }
+    // if (process.env.NODE_ENV.trim() === 'production') {
+    //   // Google API
+    //   return nodemailer.createTransport({
+    //     service: 'gmail',
+    //     auth: {
+    //       user: 'morauxplore1.0@gmail.com',
+    //       pass: 'uxploreyasith',
+    //     },
+    //   });
+    // }
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,

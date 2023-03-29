@@ -24,27 +24,34 @@ const teamSchema = new mongoose.Schema(
     activationString: {
       type: String,
     },
-    verified: {
+    teamVerified: {
       type: Boolean,
       default: false,
-      select: false,
+    },
+    emailVerified: {
+      type: Boolean,
+      default: false,
     },
     isAdmin: {
       type: Boolean,
       default: false,
-      select: false,
     },
   },
   {
     toJSON: {
       virtuals: true,
-      transform: (doc, ret) => {
-        delete ret._id;
-      },
     },
     toObject: { virtuals: true },
   }
 );
+
+//Virtual populate
+teamSchema.virtual('memberData', {
+  ref: 'Member',
+  foreignField: 'team',
+  localField: '_id',
+  justOne: true,
+});
 
 //? PRE-MIDDLEWARE - DOCUMENT MIDDLEWARE: Runs before .save() and .create()
 
@@ -60,7 +67,6 @@ teamSchema.methods.correctPassword = async function (
 };
 
 //* Generate activationString
-
 teamSchema.methods.createActivationString = function () {
   const activateString = crypto.randomBytes(32).toString('hex');
 
@@ -69,6 +75,7 @@ teamSchema.methods.createActivationString = function () {
     .update(activateString)
     .digest('hex');
 
+  this.save({ validateBeforeSave: false });
   return activateString;
 };
 
