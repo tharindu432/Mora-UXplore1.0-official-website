@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const Login = () => {
   const bg = require("../../img/Register.svg");
-
   return (
     <Fragment>
       <section className="container">
@@ -181,7 +180,7 @@ const Login = () => {
             />
             <p class="text-gray">* Team leader's email</p>
             <div class="card-footer mt-1">
-              <button class="btn btn-gradient">Register</button>
+              <button class="btn btn-gradient">Sign In</button>
               <p>
                 Don't have an account ? <Link to="/register">register</Link>
               </p>

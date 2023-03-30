@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-
+import CountDown from "./CountDown";
 const Landing = () => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -69,27 +69,11 @@ const Landing = () => {
             />
           </svg>
         </div>
-        <div className="countdown">
-          <h1>Coming Soon</h1>
-          <div className="countdown-time">
-            <div className="card bg-gray">
-              <h2>10</h2>
-              <p>Days</p>
-            </div>
-            <div className="card bg-gray">
-              <h2>10</h2>
-              <p>Hours</p>
-            </div>
-            <div className="card bg-gray">
-              <h2>10</h2>
-              <p>Minutes</p>
-            </div>
-            <div className="card bg-gray">
-              <h2>10</h2>
-              <p>Seconds</p>
-            </div>
-          </div>
-        </div>
+      
+          <CountDown/>
+       
+          
+       
       </section>
       <section className="about ">
         <div className="custom-shape-divider-top-1679898776">

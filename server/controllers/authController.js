@@ -51,9 +51,11 @@ exports.signUp = catchAsync(async (req, res, next) => {
 
   const activateToken = newTeam.createActivationString();
 
-  const activateURL = `${req.protocol}://${req.get(
-    'host'
-  )}/api/v1/teams/activate/${activateToken}`;
+  // const activateURL = `${req.protocol}://${req.get(
+  //   'host'
+  // )}/api/v1/teams/activate/${activateToken}`;
+
+  const activateURL = `${req.protocol}://${process.env.FRONTEND_HOST}/activate/${activateToken}`;
 
   await new Email(newTeam, activateURL).sendVerificationToken();
 
@@ -99,15 +101,13 @@ exports.activateTeam = catchAsync(async (req, res, next) => {
 
   const team = await Team.findOne({
     activationString: hashedToken,
-    emailVerified: false,
   });
 
   if (!team) {
-    return next(new AppError('Already verified or Invalid token', 400));
+    return next(new AppError('Invaild Token', 400));
   }
 
   team.emailVerified = true;
-  team.activationString = undefined;
   await team.save({ validateBeforeSave: false });
 
   res.status(200).json({

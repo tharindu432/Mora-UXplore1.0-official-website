@@ -1,7 +1,115 @@
-import React,{Fragment} from 'react'
+import React,{Fragment, useState} from 'react'
 import { Link } from 'react-router-dom'
+import { CAlert } from "@coreui/react";
+import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 
-const Register = () => {
+function Register  ()  {
+  const [username, setUsername] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [alert, setAlert] = useState(null);
+  const [message, setMessage] = useState('');
+  const [error, setError] = useState("");
+  const [msg, setMsg] = useState("");
+
+  
+ 
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:3001/api/v1/teams/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ teamName:username,  email:email }),
+    });
+    const data = await response.json();
+   console.log(data);
+    // you can handle the response data here, such as showing a success message to the user
+    if (response.ok ===false) {
+      setAlert(
+        <CAlert
+          className="my-alert"
+          color="danger"
+          variant="solid"
+          style={{
+            backgroundColor: "#F44336",
+            color: "#FFFFFF",
+            border: "none",
+            borderRadius: "10px",
+            padding: "20px",
+            boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: 'fixed',
+            top: '0',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: "999", // add this property
+            width: "40%", 
+            marginTop: "100px",
+            marginRight: "150px",
+          }}
+        >
+          <FaExclamationCircle
+            size={30}
+            style={{ marginRight: "5px", color: "#FFFFFF" }}
+          />
+          <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
+            Registration failed
+          </span>
+        </CAlert>
+      );
+    } else {
+      setAlert(
+        <CAlert
+          className="my-alert"
+          color="success"
+          variant="solid"
+          style={{
+            backgroundColor: "#4CAF50",
+            color: "#FFFFFF",
+            border: "none",
+            borderRadius: "10px",
+            padding: "20px",
+            boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: 'fixed',
+            top: '0',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            zIndex: "999", // add this property
+            width: "46%", 
+            marginTop: "100px",
+            marginRight: "170px",
+            
+           
+          }}
+        >
+          <FaCheckCircle
+            size={30}
+            style={{ marginRight: "5px", color: "#FFFFFF" }}
+          />
+          <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
+            Please check your email to verify 
+          </span>
+        </CAlert>
+      );
+      setUsername('');
+      setEmail('');
+    }
+
+    setTimeout(() => {
+      setAlert(null);
+    }, 3000);
+  };
+
+
   return (
     <Fragment>
       <section className="container">
@@ -47,28 +155,31 @@ const Register = () => {
       <div className="signin">
         <h1 className="text-gradient">Register</h1>
         <h4>Let's Get Started</h4>
-        <form action="" className="form">
+        <form action="" className="form" onSubmit={handleSubmit}>
           <input
             className="fa"
             type="text"
             placeholder="&#xf007; Team Name"
             name="name"
+            onChange={(e) => setUsername(e.target.value)}
           />
           <input
             className="fa"
             type="email"
             placeholder="&#xf003; Email"
             name="email"
+            onChange={(e) => setEmail(e.target.value)}
           />
           <p className="text-gray">* Team leader's email</p>
           <div className="card-footer mt-1">
-            <button className="btn btn-gradient">Register</button>
+            <button type='submit' className="btn btn-gradient" >Register</button>
             <p>Already Registered ? <Link to="/login">Sign In</Link></p>
           </div>
         </form>
+        {alert }
       </div>
       </section>
     </Fragment>
   )
-}
+  }
 export default Register

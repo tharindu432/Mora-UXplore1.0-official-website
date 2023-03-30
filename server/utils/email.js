@@ -1,7 +1,25 @@
 const nodemailer = require('nodemailer');
-//const htmlToText = require('html-to-text');
+const htmlToText = require('html-to-text');
 const fs = require('fs');
 const path = require('path');
+const { google } = require('googleapis');
+
+//Configure Google API
+
+const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI;
+const REFRESH_TOKEN = process.env.GOOGLE_REFRESH_TOKEN;
+
+const oAuth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI
+);
+
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
+
+const generateAccessToken = async () => await oAuth2Client.getAccessToken();
 
 module.exports = class Email {
   constructor(team, url) {
@@ -12,16 +30,20 @@ module.exports = class Email {
   }
 
   newTransport() {
-    // if (process.env.NODE_ENV.trim() === 'production') {
-    //   // Google API
-    //   return nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //       user: 'morauxplore1.0@gmail.com',
-    //       pass: 'uxploreyasith',
-    //     },
-    //   });
-    // }
+    if (process.env.NODE_ENV.trim() === 'production') {
+      // Google API
+      return nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          type: 'OAuth2',
+          user: process.env.GOOGLE_EMAIL_USERNAME,
+          clientId: CLIENT_ID,
+          clientSecret: CLIENT_SECRET,
+          refreshToken: REFRESH_TOKEN,
+          accessToken: generateAccessToken(),
+        },
+      });
+    }
     return nodemailer.createTransport({
       host: process.env.EMAIL_HOST,
       port: process.env.EMAIL_PORT,

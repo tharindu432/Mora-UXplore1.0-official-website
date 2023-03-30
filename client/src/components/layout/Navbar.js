@@ -12,8 +12,8 @@ const Navbar = () => {
       <img src="logo 2.svg" alt="" />
       <ul>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="#">About</Link></li>
-        <li><Link to="#">Contact us</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/contact">Contact us</Link></li>
       </ul>
       <div className="nav-buttons">
         <button className="btn btn-secondary" onClick={()=>navigate('/register')}>Register</button>
