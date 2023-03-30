@@ -10,39 +10,33 @@ const memberSchema = new mongoose.Schema(
       type: String,
       required: [true, 'University is Required !'],
     },
-    t01: {
-      name: {
-        type: String,
-        required: [true, 'Name is Required !'],
-      },
-      contact: {
-        type: String,
-        required: [true, 'Contact No is Required !!'],
-      },
-      university_index: {
-        type: String,
-        required: [true, 'University Index is Required !!'],
-      },
+    t01name: {
+      type: String,
+      required: [true, 'Name is Required !'],
     },
-    t02: {
-      name: {
-        type: String,
-        required: [true, 'Name is Required !'],
-      },
-      university_index: {
-        type: String,
-        required: [true, 'University Index is Required !!'],
-      },
+    t01contact: {
+      type: String,
+      required: [true, 'Contact No is Required !!'],
     },
-    t03: {
-      name: {
-        type: String,
-        required: [true, 'Name is Required !'],
-      },
-      university_index: {
-        type: String,
-        required: [true, 'University Index is Required !!'],
-      },
+    t01university_index: {
+      type: String,
+      required: [true, 'University Index is Required !!'],
+    },
+    t02name: {
+      type: String,
+      required: [true, 'Name is Required !'],
+    },
+    t02university_index: {
+      type: String,
+      required: [true, 'University Index is Required !!'],
+    },
+    t03name: {
+      type: String,
+      required: [true, 'Name is Required !'],
+    },
+    t03university_index: {
+      type: String,
+      required: [true, 'University Index is Required !!'],
     },
   },
   {

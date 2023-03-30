@@ -1,35 +1,34 @@
-const { createLogger, format } = require('winston');
+// const { createLogger, format } = require('winston');
 
-const DailyRotateFile = require('winston-daily-rotate-file');
+// const DailyRotateFile = require('winston-daily-rotate-file');
 
+// // Create separate transports for different log levels
+// const errorTransport = new DailyRotateFile({
+//   filename: './logs/error-logs/error-%DATE%.log',
+//   datePattern: 'YYYY-MM-DD',
+//   zippedArchive: true,
+//   maxSize: '20m',
+//   maxFiles: '14d',
+//   level: 'error',
+// });
 
-// Create separate transports for different log levels
-const errorTransport = new DailyRotateFile({
-  filename: './logs/error-logs/error-%DATE%.log',
-  datePattern: 'YYYY-MM-DD',
-  zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '14d',
-  level: 'error',
-});
+// const infoTransport = new DailyRotateFile({
+//   filename: './logs/info-logs/info-%DATE%.log',
+//   datePattern: 'YYYY-MM-DD',
+//   zippedArchive: true,
+//   maxSize: '20m',
+//   maxFiles: '14d',
+//   level: 'info',
+// });
 
-const infoTransport = new DailyRotateFile({
-  filename: './logs/info-logs/info-%DATE%.log',
-  datePattern: 'YYYY-MM-DD',
-  zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '14d',
-  level: 'info',
-});
-
-// Create a combined transport for all log levels
-const combinedTransport = new DailyRotateFile({
-  filename: './logs/combined-logs/combined-%DATE%.log',
-  datePattern: 'YYYY-MM-DD',
-  zippedArchive: true,
-  maxSize: '20m',
-  maxFiles: '14d',
-});
+// // Create a combined transport for all log levels
+// const combinedTransport = new DailyRotateFile({
+//   filename: './logs/combined-logs/combined-%DATE%.log',
+//   datePattern: 'YYYY-MM-DD',
+//   zippedArchive: true,
+//   maxSize: '20m',
+//   maxFiles: '14d',
+// });
 
 // Create a Logtail transport for cloud logging
 
@@ -39,13 +38,13 @@ const combinedTransport = new DailyRotateFile({
 // });
 
 // Create a logger with the transports
-const logger = createLogger({
-  format: format.combine(format.timestamp(), format.json()),
-  transports: [
-    errorTransport,
-    infoTransport,
-    combinedTransport,
-  ],
-});
+// const logger = createLogger({
+//   format: format.combine(format.timestamp(), format.json()),
+//   transports: [
+//     errorTransport,
+//     infoTransport,
+//     combinedTransport,
+//   ],
+// });
 
-module.exports = logger;
+// module.exports = logger;
