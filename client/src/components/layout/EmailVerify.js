@@ -1,91 +1,105 @@
 import { useEffect, useState, Fragment, useRef } from "react";
 import { useParams, Link } from "react-router-dom";
-import axios from "axios";
 import success from "../../img/success.png";
 import styles from "./styles.module.css";
-//import { Fragment } from "react/cjs/react.production.min";
+import Error from "./error2.js";
+import { useTeam } from "./TeamContext";
 
 const EmailVerify = () => {
+  const { setTeam } = useTeam();
   const [validUrl, setValidUrl] = useState(false);
   const [hasSentRequest, setHasSentRequest] = useState(false);
   const hasSentRequestB = useRef(false);
   const param = useParams();
+  const [route, setRoute] = useState("/addMembers");
+  const [teamID, setTeamID] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/teams/activate/${param.token}`, {
-      method: "PATCH",
-    })
-      .then((response) => {
+    async function activateTeam() {
+      try {
+        const response = await fetch(
+          `http://localhost:3001/api/v1/teams/activate/${param.token}`,
+          {
+            method: "PATCH",
+            headers: { "content-type": "application/json" },
+          }
+        );
+
         if (response.ok) {
-          console.log("Hello");
+          const data = await response.json();
+          //console.log(data.data.team);
+          setTeam(data.data.team);
+          setTeamID(data.data.team);
+          //console.log(teamID);
           setValidUrl(true);
         } else {
           setValidUrl(false);
         }
-      })
-      .catch((error) => {
+      } catch (error) {
         setValidUrl(false);
-        console.error(error);
-      });
-  }, []);
+        //console.error(error);
+      } finally {
+        setHasSentRequest(true);
+      }
+    }
 
-  //   useEffect(() => {
-  //     if (!hasSentRequestB.current) {
-  //       fetch("https://example.com/api/v1/teams/1", {
-  //         method: "PATCH",
-  //       })
-  //         .then((response) => {
-  //           if (response.ok) {
-  //             setValidUrl(true);
-  //           } else {
-  //             setValidUrl(false);
-  //           }
-  //         })
-  //         .catch((error) => {
-  //           setValidUrl(false);
-  //           console.error(error);
-  //         })
-  //         .finally(() => {
-  //           hasSentRequestB.current = true;
-  //         });
-  //     }
-  //   }, []);
+    if (!hasSentRequestB.current) {
+      activateTeam();
+      hasSentRequestB.current = true;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [param.token, setTeam]);
 
-  //   useEffect(() => {
-  //     if (!hasSentRequest) {
-  //       fetch(`http://localhost:3001/api/v1/teams/activate/${param.token}`, {
-  //         method: "PATCH",
-  //       })
-  //         .then((response) => {
-  //           if (response.ok) {
-  //             setValidUrl(true);
-  //           } else {
-  //             setValidUrl(false);
-  //           }
-  //         })
-  //         .catch((error) => {
-  //           setValidUrl(false);
-  //           console.error(error);
-  //         })
-  //         .finally(() => {
-  //           setHasSentRequest(true);
-  //         });
-  //     }
-  //   }, [hasSentRequest]);
+  useEffect(() => {
+    async function getRoute() {
+      if (teamID !== null) {
+        try {
+          console.log("Working");
+          const response = await fetch(
+            `http://localhost:3001/api/v1/teams/getMember/${teamID}`,
+            {
+              method: "GET",
+              headers: { "content-type": "application/json" },
+            }
+          );
+          if (response.ok) {
+            const data = await response.json();
+            setRoute("/pending");
+          } else {
+            console.error("Something went wrong");
+          }
+        } catch (error) {
+          //console.error(error);
+        }
+      }
+    }
+    if (hasSentRequest) {
+      // add conditional check to ensure hasSentRequest is true
+      getRoute();
+    }
+  }, [teamID, hasSentRequest]);
 
   return (
     <Fragment>
-      {validUrl ? (
-        <div className={styles.container}>
-          <img src={success} alt="success_img" className={styles.success_img} />
-          <h1>Email verified successfully</h1>
-          <Link to="/teamregister">
+      {hasSentRequest && validUrl && (
+        <div style={{ paddingTop: "10rem" }}>
+          <div className={styles.container}>
+            <img
+              src={success}
+              alt="success_img"
+              className={styles.success_img}
+            />
+            <h1>Email verified successfully</h1>
+            {/* <Link to="/addMembers">
             <button className={styles.green_btn}>Add Team Members</button>
-          </Link>
+          </Link> */}
+            <Link to={route}>
+              <button className={styles.green_btn}>Add Team Members</button>
+            </Link>
+          </div>
         </div>
-      ) : (
-        <h1>404 Not Found</h1>
       )}
+      {hasSentRequest && !validUrl && <Error />}
     </Fragment>
   );
 };

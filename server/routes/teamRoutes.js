@@ -20,7 +20,11 @@ router.patch('/activate/:token', authController.activateTeam);
 // @access Public
 router.post('/addMembers', memberController.addMembers);
 
-//
+// @route GET api/v1/teams/getMember/:teamID
+// @desc Get Member
+// @access Public
+
+router.get('/getMember/:teamID', memberController.getMember);
 
 // @route: POST api/v1/teams/login
 // @desc: Login Team

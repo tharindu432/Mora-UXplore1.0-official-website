@@ -7,42 +7,49 @@ import Landing from "./components/layout/Landing";
 import Navbar from "./components/layout/Navbar";
 import EmailVerify from "./components/layout/EmailVerify";
 import TeamRegister from "./components/layout/TeamRegister";
+import Pending from "./components/layout/Pending";
+import { TeamProvider } from "./components/layout/TeamContext";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: 'dashboard'
-    }
+      route: "dashboard",
+    };
   }
   setRoute = (route) => {
     this.setState({
-      route: route
+      route: route,
     });
   };
 
-  render(){
+  render() {
     return (
       <Router>
         <Fragment>
-          <Navbar/>s
+          <Navbar />
+          <TeamProvider>
             <Routes>
               <Route exact path="/dashboard" element={<Landing />} />
               <Route exact path="/login" element={<Login />} />
-              <Route exact path="/register" element={<Register setRoute={this.setRoute} />} />
+              <Route
+                exact
+                path="/register"
+                element={<Register setRoute={this.setRoute} />}
+              />
               <Route path="/activate/:token" element={<EmailVerify />} />
-              <Route exact path="/teamregister" element={<TeamRegister />} />
+              <Route exact path="/addMembers" element={<TeamRegister />} />
+              <Route path="/pending" element={<Pending />} />
               <Route
                 path="*"
                 element={<Navigate to="/dashboard" replace={true} />}
               />
-             
             </Routes>
+          </TeamProvider>
         </Fragment>
       </Router>
     );
   }
- 
 }
 
 export default App;

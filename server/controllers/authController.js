@@ -61,9 +61,6 @@ exports.signUp = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    data: {
-      user: newTeam,
-    },
   });
 });
 
@@ -86,7 +83,7 @@ exports.login = catchAsync(async (req, res, next) => {
 
   // 03.) Send token to client
   createSendToken(team, 200, res);
-  console.log(`${email} successfully logged in !`);
+  // console.log(`${email} successfully logged in !`);
 });
 
 //* Team Activation

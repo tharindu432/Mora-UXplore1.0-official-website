@@ -1,12 +1,16 @@
-import React, { Fragment, useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { Fragment, useEffect } from "react";
 import CountDown from "./CountDown";
-const Landing = () => {
+
+const Landing = ({ contact, about }) => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        entry.target.classList.remove("hidden");
         entry.target.classList.add("show");
       } else {
         entry.target.classList.remove("show");
+        entry.target.classList.add("hidden");
       }
     });
   });
@@ -69,13 +73,9 @@ const Landing = () => {
             />
           </svg>
         </div>
-      
-          <CountDown/>
-       
-          
-       
+        <CountDown />
       </section>
-      <section className="about ">
+      <section ref={about} id="about" className="about ">
         <div className="custom-shape-divider-top-1679898776">
           <svg
             data-name="Layer 1"
@@ -97,20 +97,16 @@ const Landing = () => {
           </h1>
           <div className="hidden right">
             <h2>What is Uxplore</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam,
-              temporibus dolores non magnam ad ex beatae delectus iste
-              recusandae reprehenderit voluptates adipisci mollitia autem totam
-              aut quisquam! Fugit voluptatum accusantium, iure qui
-              exercitationem quaerat cupiditate aliquam nulla veritatis quasi
-              maiores sapiente necessitatibus libero corporis? Unde ut
-              accusantium tenetur voluptatibus iure deserunt est distinctio,
-              consequuntur nesciunt iste itaque, harum, eaque et obcaecati ipsa
-              voluptates nam beatae. Pariatur quisquam eius rerum vel recusandae
-              doloribus sit similique iusto iste. Iure ratione illum officia
-              voluptas unde maiores laboriosam dolore sequi, cupiditate sunt
-              distinctio, corporis assumenda est suscipit molestiae? Eos tempora
-              recusandae sunt quaerat ipsam!
+            <p style={{ lineHeight: "2" }}>
+              Mora UXplore 1.0 is an event initiated by the IEEE Student Branch
+              of University of Moratuwa. This event is conducted for the first
+              time. Mora UXplore is a UI/UX designing competition bringing all
+              undergraduates together with creativity and user-friendly
+              creations. Mora UXplore is open to all undergraduates in any
+              university who are enthusiastic to create UI/UX. This event
+              consists of an awareness session, three workshops, three rounds
+              and a final designathon. We are expecting 150+ teams consisting of
+              450+ participants.
             </p>
           </div>
         </div>
@@ -139,6 +135,113 @@ const Landing = () => {
         </div>
         <h1 className="vertical-header text-border-gradient hidden top">
           guidlines
+        </h1>
+      </section>
+      <section className="timeline">
+        <svg
+          id="curve2"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+        >
+          <path
+            fill="#ffffff"
+            fillOpacity="1"
+            d="M0,160L60,144C120,128,240,96,360,106.7C480,117,600,171,720,165.3C840,160,960,96,1080,74.7C1200,53,1320,75,1380,85.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
+          ></path>
+        </svg>
+        <h1 id="timeline" className="text-border-white hidden shrink">
+          Timeline
+        </h1>
+        <div className="timeline-card ">
+          <div className="timeline-card-content hidden left">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden right">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden left">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden right">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden left">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden right">
+            <p>April 06</p>
+            <h2>Awareness Session</h2>
+            <p>Via Zoom</p>
+          </div>
+        </div>
+      </section>
+      <section className="guidlines">
+        <div ref={contact} id="contact" className="contacts">
+          <div className="contact-card hidden left">
+            <img src="./images/Chasila Withanage.jpg" alt="" />
+            <div>
+              <h4>Chasila Withanage</h4>
+              <p>Charman of IEEE Student Branch</p>
+              <p>University of Moratuwa</p>
+              <p>chasilawithange@ieee.org</p>
+              <p>+94 71 261 8255</p>
+            </div>
+          </div>
+          <div className="contact-card hidden left">
+            <img src="./images/Hiruna Harankahadeniya.JPG" alt="" />
+            <div>
+              <h4>Hiruna Harankahadeniya</h4>
+              <p>Vice Charman of IEEE Student Branch</p>
+              <p>University of Moratuwa</p>
+              <p>hiruna.harankahadeniya@ieee.org</p>
+              <p>+94 76 267 5516</p>
+            </div>
+          </div>
+          <div className="contact-card hidden left">
+            <img src="./images/Yasith Senarath.jpg" alt="" />
+            <div>
+              <h4>Yasith Senarath</h4>
+              <p>Event Co-Chairperson</p>
+              <p>IEEE Mora UXplore 1.0</p>
+              <p>yasithsenarath@gmail.com</p>
+              <p>+94 71 596 0336</p>
+            </div>
+          </div>
+          <div className="contact-card hidden left">
+            <img src="./images/Malinsha Vithanage.jpg" alt="" />
+            <div>
+              <h4>Malinsha Vithanage</h4>
+              <p>Event Co-Chairperson</p>
+              <p>IEEE Mora UXplore 1.0</p>
+              <p>malikgvitha@gmail.com</p>
+              <p>+94 70 382 9878</p>
+            </div>
+          </div>
+        </div>
+        <h1 className="text-border-blue vertical-header hidden top">
+          Contact
+          <br />
+          Details
         </h1>
       </section>
     </Fragment>
