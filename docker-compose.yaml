@@ -29,7 +29,10 @@ services:
       GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:?err}
 
   client:
-    build: ./client
+    build: 
+      context: ./client
+      args:
+        REACT_APP_API_URL: ${REACT_APP_API_URL:?err}
     restart: always
     expose:
       - 80

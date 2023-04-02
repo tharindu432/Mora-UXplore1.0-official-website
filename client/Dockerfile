@@ -1,10 +1,17 @@
 FROM node:18-alpine as builder
 # Set the working directory to /app inside the container
 WORKDIR /app
+
+# Install app dependencies
+COPY package*.json ./
+RUN npm install
+
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
+RUN echo "REACT_APP_API_URL=$REACT_APP_API_URL"
+
 # Copy app files
 COPY . .
-# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
-RUN npm install
 # Build the app
 RUN npm run build
 
