@@ -4,6 +4,7 @@ import success from "../../img/success.png";
 import styles from "./styles.module.css";
 import Error from "./error2.js";
 import { useTeam } from "./TeamContext";
+import { API_URL } from "../constants";
 
 const EmailVerify = () => {
   const { setTeam } = useTeam();
@@ -18,7 +19,7 @@ const EmailVerify = () => {
     async function activateTeam() {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/v1/teams/activate/${param.token}`,
+          `${API_URL}/teams/activate/${param.token}`,
           {
             method: "PATCH",
             headers: { "content-type": "application/json" },
@@ -56,7 +57,7 @@ const EmailVerify = () => {
         try {
           console.log("Working");
           const response = await fetch(
-            `http://localhost:3001/api/v1/teams/getMember/${teamID}`,
+            `${API_URL}/teams/getMember/${teamID}`,
             {
               method: "GET",
               headers: { "content-type": "application/json" },
