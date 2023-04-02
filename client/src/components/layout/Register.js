@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import { CAlert } from "@coreui/react";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { API_URL } from "../constants";
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -105,7 +106,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:3001/api/v1/teams/signup", {
+    const response = await fetch(`${API_URL}/teams/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

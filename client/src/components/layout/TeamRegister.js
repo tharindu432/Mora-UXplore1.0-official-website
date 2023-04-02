@@ -3,6 +3,7 @@ import React, { Fragment, useState } from "react";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { CAlert } from "@coreui/react";
 import { useTeam } from "./TeamContext";
+import { API_URL } from "../constants";
 
 function TeamRegister() {
   const { team } = useTeam();
@@ -20,7 +21,7 @@ function TeamRegister() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "http://localhost:3001/api/v1/teams/addMembers",
+      `${API_URL}/teams/addMembers`,
       {
         method: "POST",
         headers: {
