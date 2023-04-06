@@ -105,13 +105,13 @@ const Landing = ({ contact, about }) => {
               creations. Mora UXplore is open to all undergraduates in any
               university who are enthusiastic to create UI/UX. This event
               consists of an awareness session, three workshops, three rounds
-              and a final designathon. We are expecting 150+ teams consisting of
-              450+ participants.
+              and a final designathon. We are expecting 250+ teams consisting of
+              750+ participants.
             </p>
           </div>
         </div>
       </section>
-      <section className="guidlines text-primary">
+      <section className="guidlines text-primary" id="guidelines">
         <div>
           <h2 className="hidden top">guidlines</h2>
           <ul className="hidden left">
@@ -144,7 +144,7 @@ const Landing = ({ contact, about }) => {
           guidlines
         </h1>
       </section>
-      <section className="timeline">
+      <section className="timeline" id="timeline">
         <svg
           id="curve2"
           xmlns="http://www.w3.org/2000/svg"
