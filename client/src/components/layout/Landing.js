@@ -96,7 +96,7 @@ const Landing = ({ contact, about }) => {
             Uxplore?
           </h1>
           <div className="hidden right">
-            <h2>What is Uxplore</h2>
+            <h2>What is Mora UXplore 1.0?</h2>
             <p style={{ lineHeight: "2" }}>
               Mora UXplore 1.0 is an event initiated by the IEEE Student Branch
               of University of Moratuwa. This event is conducted for the first
@@ -171,18 +171,12 @@ const Landing = ({ contact, about }) => {
             <p>April 29</p>
             <h2>Workshop 01</h2>
             <p>Via Zoom</p>
-            <p>
-              conducted by <b>platinum partner 01</b>
-            </p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
             <p>April 30</p>
             <h2>Round 01</h2>
-            <p>
-              handled by <b>platinum partner 01</b>
-            </p>
             <p>through Mora UXplore website</p>
           </div>
         </div>
@@ -191,18 +185,12 @@ const Landing = ({ contact, about }) => {
             <p>May 06</p>
             <h2>Workshop 02</h2>
             <p>Via Zoom</p>
-            <p>
-              conducted by <b>platinum partner 02</b>
-            </p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
             <p>May 07</p>
             <h2>Round 02</h2>
-            <p>
-              handled by <b>platinum partner 02</b>
-            </p>
             <p>through Mora UXplore website</p>
           </div>
         </div>
@@ -211,18 +199,12 @@ const Landing = ({ contact, about }) => {
             <p>June 03</p>
             <h2>Workshop 03</h2>
             <p>at university premises</p>
-            <p>
-              conducted by <b>title partner</b>
-            </p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
             <p>June 04</p>
             <h2>Round 03</h2>
-            <p>
-              handled by <b>title partner</b>
-            </p>
             <p>through Mora UXplore website</p>
           </div>
         </div>
@@ -236,7 +218,6 @@ const Landing = ({ contact, about }) => {
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
             <h2>Awards Ceremony</h2>
-            <p>Will be held at a special location</p>
           </div>
         </div>
       </section>
