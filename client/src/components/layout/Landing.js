@@ -93,7 +93,7 @@ const Landing = ({ contact, about }) => {
           <h1 className="vertical-header text-border-blue hidden bottom">
             What is
             <br />
-            Uxplore?
+            Uxplore 1.0?
           </h1>
           <div className="hidden right">
             <h2>What is Mora UXplore 1.0?</h2>
