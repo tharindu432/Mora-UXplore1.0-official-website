@@ -113,7 +113,7 @@ const Landing = ({ contact, about }) => {
       </section>
       <section className="guidlines text-primary" id="guidelines">
         <div>
-          <h2 className="hidden top">guidlines</h2>
+          <h2 className="hidden top">guidelines</h2>
           <ul className="hidden left">
             <li>
               All the participants must be undergraduates and should be from the
@@ -141,7 +141,7 @@ const Landing = ({ contact, about }) => {
           </ul>
         </div>
         <h1 className="vertical-header text-border-gradient hidden top">
-          guidlines
+          guidelines
         </h1>
       </section>
       <section className="timeline" id="timeline">
