@@ -21,6 +21,22 @@ const Navbar = ({ about, contact }) => {
     });
   };
 
+  const handleGuidelines = () => {
+    const contact = document.querySelector("#guidelines");
+    contact.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
+  const handleTimeline = () => {
+    const contact = document.querySelector("#timeline");
+    contact.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+  };
+
   return (
     <Fragment>
       <nav>
@@ -33,6 +49,13 @@ const Navbar = ({ about, contact }) => {
             <Fragment>
               <li>
                 <Link onClick={() => handleAbout()}>About</Link>
+              </li>
+             
+              <li>
+                <Link onClick={() => handleGuidelines()}>Guidelines</Link>
+              </li>
+              <li>
+                <Link onClick={() => handleTimeline()}>Timeline</Link>
               </li>
               <li>
                 <Link onClick={() => handleContact()}>Contact us</Link>
