@@ -5,7 +5,8 @@ services:
     expose:
       - 3001
     environment:
-      NODE_ENV: "prod"
+      NODE_ENV: "production"
+      ENVIRONMENT: "production"
       PORT: 3001
       DATABASE: ${DATABASE:?err}
       DATABASE_PASSWORD: ${DATABASE_PASSWORD:?err}

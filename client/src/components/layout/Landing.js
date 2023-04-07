@@ -96,7 +96,7 @@ const Landing = ({ contact, about }) => {
             Uxplore?
           </h1>
           <div className="hidden right">
-            <h2>What is Uxplore</h2>
+            <h2>What is Mora UXplore 1.0?</h2>
             <p style={{ lineHeight: "2" }}>
               Mora UXplore 1.0 is an event initiated by the IEEE Student Branch
               of University of Moratuwa. This event is conducted for the first
@@ -116,20 +116,27 @@ const Landing = ({ contact, about }) => {
           <h2 className="hidden top">guidlines</h2>
           <ul className="hidden left">
             <li>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
-              nisi?
+              All the participants must be undergraduates and should be from the
+              same university.
+            </li>
+            <li>One team should consist of a maximum of up to 3 members.</li>
+            <li>
+              All interested teams must register for the event before the
+              deadline specified by the organizing committee.
             </li>
             <li>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
-              nisi?
+              All participating teams will be given a design challenge and have
+              to submit their solutions within a specified timeframe.
             </li>
             <li>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
-              nisi?
+              The selected teams from the previous round will move on to the
+              next round, where they will be given a more complex design
+              challenge.
             </li>
             <li>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum,
-              nisi?
+              The top 15 teams from round 3 will participate in a final
+              designathon, where they will have to work on a more advanced
+              design challenge within a limited time frame.
             </li>
           </ul>
         </div>
@@ -154,44 +161,63 @@ const Landing = ({ contact, about }) => {
         </h1>
         <div className="timeline-card ">
           <div className="timeline-card-content hidden left">
-            <p>April 06</p>
+            <p>April 25</p>
             <h2>Awareness Session</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden right">
-            <p>April 06</p>
-            <h2>Awareness Session</h2>
+            <p>April 29</p>
+            <h2>Workshop 01</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
-            <p>April 06</p>
-            <h2>Awareness Session</h2>
-            <p>Via Zoom</p>
+            <p>April 30</p>
+            <h2>Round 01</h2>
+            <p>through Mora UXplore website</p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden right">
-            <p>April 06</p>
-            <h2>Awareness Session</h2>
+            <p>May 06</p>
+            <h2>Workshop 02</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden left">
-            <p>April 06</p>
-            <h2>Awareness Session</h2>
-            <p>Via Zoom</p>
+            <p>May 07</p>
+            <h2>Round 02</h2>
+            <p>through Mora UXplore website</p>
           </div>
         </div>
         <div className="timeline-card">
           <div className="timeline-card-content hidden right">
-            <p>April 06</p>
-            <h2>Awareness Session</h2>
-            <p>Via Zoom</p>
+            <p>June 03</p>
+            <h2>Workshop 03</h2>
+            <p>at university premises</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden left">
+            <p>June 04</p>
+            <h2>Round 03</h2>
+            <p>through Mora UXplore website</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden left">
+            <p>June 17</p>
+            <h2>Final Designathon</h2>
+            <p>at university premises</p>
+          </div>
+        </div>
+        <div className="timeline-card">
+          <div className="timeline-card-content hidden left">
+            <h2>Awards Ceremony</h2>
           </div>
         </div>
       </section>

@@ -31,12 +31,12 @@ class App extends React.Component {
           <TeamProvider>
             <Routes>
               <Route exact path="/dashboard" element={<Landing />} />
-              <Route exact path="/login" element={<Login />} />
-              <Route
+              {/* <Route exact path="/login" element={<Login />} /> */}
+              {/* <Route
                 exact
                 path="/register"
                 element={<Register setRoute={this.setRoute} />}
-              />
+              /> */}
               <Route path="/activate/:token" element={<EmailVerify />} />
               <Route exact path="/addMembers" element={<TeamRegister />} />
               <Route path="/pending" element={<Pending />} />
