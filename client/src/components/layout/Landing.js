@@ -105,8 +105,7 @@ const Landing = ({ contact, about }) => {
               creations. Mora UXplore is open to all undergraduates in any
               university who are enthusiastic to create UI/UX. This event
               consists of an awareness session, three workshops, three rounds
-              and a final designathon. We are expecting 250+ teams consisting of
-              750+ participants.
+              and a final designathon.
             </p>
           </div>
         </div>
@@ -114,8 +113,8 @@ const Landing = ({ contact, about }) => {
       <section className="guidlines text-primary" id="guidelines">
         <div>
           <h2 className="hidden top">guidelines</h2>
-          <ul className="hidden left">
-            <li>
+          <ul className="hidden left" >
+            <li  >
               All the participants must be undergraduates and should be from the
               same university.
             </li>
@@ -160,49 +159,49 @@ const Landing = ({ contact, about }) => {
           Timeline
         </h1>
         <div className="timeline-card ">
-          <div className="timeline-card-content hidden left">
+          <div className="timeline-card-content hidden right">
             <p>April 25</p>
             <h2>Awareness Session</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden right">
+          <div className="timeline-card-content hidden left">
             <p>April 29</p>
             <h2>Workshop 01</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden left">
+          <div className="timeline-card-content hidden right">
             <p>April 30</p>
             <h2>Round 01</h2>
             <p>through Mora UXplore website</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden right">
+          <div className="timeline-card-content hidden left">
             <p>May 06</p>
             <h2>Workshop 02</h2>
             <p>Via Zoom</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden left">
+          <div className="timeline-card-content hidden right">
             <p>May 07</p>
             <h2>Round 02</h2>
             <p>through Mora UXplore website</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden right">
+          <div className="timeline-card-content hidden left">
             <p>June 03</p>
             <h2>Workshop 03</h2>
             <p>at university premises</p>
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden left">
+          <div className="timeline-card-content hidden right">
             <p>June 04</p>
             <h2>Round 03</h2>
             <p>through Mora UXplore website</p>
@@ -216,7 +215,7 @@ const Landing = ({ contact, about }) => {
           </div>
         </div>
         <div className="timeline-card">
-          <div className="timeline-card-content hidden left">
+          <div className="timeline-card-content hidden right">
             <h2>Awards Ceremony</h2>
           </div>
         </div>
@@ -227,7 +226,7 @@ const Landing = ({ contact, about }) => {
             <img src="./images/Chasila Withanage.jpg" alt="" />
             <div>
               <h4>Chasila Withanage</h4>
-              <p>Charman of IEEE Student Branch</p>
+              <p>Chairman of IEEE Student Branch</p>
               <p>University of Moratuwa</p>
               <p>chasilawithange@ieee.org</p>
               <p>+94 71 261 8255</p>
@@ -237,7 +236,7 @@ const Landing = ({ contact, about }) => {
             <img src="./images/Hiruna Harankahadeniya.JPG" alt="" />
             <div>
               <h4>Hiruna Harankahadeniya</h4>
-              <p>Vice Charman of IEEE Student Branch</p>
+              <p>Vice Chairman of IEEE Student Branch</p>
               <p>University of Moratuwa</p>
               <p>hiruna.harankahadeniya@ieee.org</p>
               <p>+94 76 267 5516</p>
