@@ -247,7 +247,7 @@ const Landing = ({ contact, about }) => {
             <div>
               <h4>Yasith Senarath</h4>
               <p>Event Co-Chairperson</p>
-              <p>IEEE Mora UXplore 1.0</p>
+              <p> Mora UXplore 1.0</p>
               <p>yasithsenarath@gmail.com</p>
               <p>+94 71 596 0336</p>
             </div>
@@ -257,7 +257,7 @@ const Landing = ({ contact, about }) => {
             <div>
               <h4>Malinsha Vithanage</h4>
               <p>Event Co-Chairperson</p>
-              <p>IEEE Mora UXplore 1.0</p>
+              <p>Mora UXplore 1.0</p>
               <p>malikgvitha@gmail.com</p>
               <p>+94 70 382 9878</p>
             </div>
