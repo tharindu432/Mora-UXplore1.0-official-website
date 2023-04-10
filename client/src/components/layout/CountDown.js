@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "tachyons";
 
 const CountDown = () => {
-  const targetDate = new Date("April 10, 2023 15:45:00").getTime();
+  const targetDate = new Date("April 12, 2023 10:00:00").getTime();
   const [remainingTime, setRemainingTime] = useState(targetDate - new Date().getTime());
 
   useEffect(() => {
