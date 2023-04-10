@@ -22,10 +22,10 @@ const Landing = ({ contact, about }) => {
 
   return (
     <Fragment>
-      <section className="landing">
+      <section className="landing" >
         <div className="circle circle-1"></div>
         <div className="circle circle-2 hide-sm"></div>
-        <div className="logo">
+        <div className="logo" style={{height:'40%'}}>
           <div className="logo-img"></div>
           <svg
             id="rectangle-blue"
