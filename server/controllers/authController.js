@@ -55,7 +55,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
   //   'host'
   // )}/api/v1/teams/activate/${activateToken}`;
 
-  const activateURL = `${req.protocol}://${process.env.FRONTEND_HOST}/activate/${activateToken}`;
+  const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
 
   await new Email(newTeam, activateURL).sendVerificationToken();
 
