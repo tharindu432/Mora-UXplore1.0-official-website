@@ -1,56 +1,56 @@
-import React, { Fragment } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 const Navbar = ({ about, contact }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleAbout = () => {
-    const about = document.querySelector("#about");
+    const about = document.querySelector('#about');
     about.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
+      behavior: 'smooth',
+      block: 'center',
     });
   };
 
   const handleContact = () => {
-    const contact = document.querySelector("#contact");
+    const contact = document.querySelector('#contact');
     contact.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
+      behavior: 'smooth',
+      block: 'center',
     });
   };
 
   const handleGuidelines = () => {
-    const contact = document.querySelector("#guidelines");
+    const contact = document.querySelector('#guidelines');
     contact.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
+      behavior: 'smooth',
+      block: 'center',
     });
   };
 
   const handleTimeline = () => {
-    const contact = document.querySelector("#timeline");
+    const contact = document.querySelector('#timeline');
     contact.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
+      behavior: 'smooth',
+      block: 'center',
     });
   };
 
   return (
     <Fragment>
       <nav>
-        <img src="logo 2.svg" alt="" />
+        <img src='Logo 2.svg' alt='' />
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to='/'>Home</Link>
           </li>
-          {location.pathname === "/dashboard" ? (
+          {location.pathname === '/dashboard' ? (
             <Fragment>
               <li>
                 <Link onClick={() => handleAbout()}>About</Link>
               </li>
-             
+
               <li>
                 <Link onClick={() => handleGuidelines()}>Guidelines</Link>
               </li>
