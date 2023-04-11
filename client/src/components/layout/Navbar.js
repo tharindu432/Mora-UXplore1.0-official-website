@@ -40,7 +40,7 @@ const Navbar = ({ about, contact }) => {
   return (
     <Fragment>
       <nav>
-        <img src='Logo 2.svg' alt='' />
+        <img className='hide-sm' src='Logo 2.svg' alt='' />
         <ul>
           <li>
             <Link to='/'>Home</Link>
