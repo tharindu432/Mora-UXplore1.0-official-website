@@ -65,7 +65,7 @@ const Navbar = ({ about, contact }) => {
             <Fragment></Fragment>
           )}
         </ul>
-        {/* <div className="nav-buttons">
+        <div className="nav-buttons">
           <button
             className="btn btn-secondary"
             onClick={() => navigate("/register")}
@@ -78,7 +78,7 @@ const Navbar = ({ about, contact }) => {
           >
             Sign In
           </button>
-        </div> */}
+        </div>
       </nav>
     </Fragment>
   );

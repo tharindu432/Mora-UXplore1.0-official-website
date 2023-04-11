@@ -27,7 +27,8 @@ const CountDown = () => {
 
   return (
     <div className="countdown">
-      <h1>Coming Soon</h1>
+      <h1>Registrations Open</h1>
+      {/* <h1>Coming Soon</h1>
       <div className="countdown-time">
         <div className="card bg-gray">
           <h2>{days}</h2>
@@ -45,7 +46,7 @@ const CountDown = () => {
           <h2>{seconds}</h2>
           <p>Seconds</p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
