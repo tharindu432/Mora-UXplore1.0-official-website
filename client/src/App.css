@@ -114,6 +114,9 @@
   color: #000;
   background: none;
   border-width: 2px;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
   border-style: solid;
   -o-border-image: linear-gradient(
       72.71deg,
@@ -684,14 +687,23 @@ section .countdown h1 {
   gap: 20px;
   transition: all 1s ease;
   padding-bottom: 30px;
+  height: 65vh;
 }
 .about .about-content {
-  margin-top: 6rem;
   display: grid;
-  padding: 0 30px;
+  position: absolute;
+  top: 30px;
   grid-template-columns: 1fr 3fr;
+  padding-right: 50px;
+  width: 100%;
   color: #fff;
 }
+
+#about-des{
+  margin:auto;
+
+}
+
 .about .about-content h2 {
   font-weight: 600;
   font-size: xx-large;
@@ -1059,6 +1071,20 @@ p {
   .contacts {
     flex-direction: column;
     justify-content: center;
+  }
+
+  .about{
+    height: auto !important;
+  }
+  .about .about-content {
+    position: static !important;
+    /* top:70px !important; */
+    padding: 0 10px !important;
+    margin-top: 6rem !important;
+  }
+  .about .about-content p{
+    padding:0 5px;
+    padding-right: 5px !important;
   }
 }
 svg {
@@ -1441,30 +1467,6 @@ section .countdown h1 {
   opacity: 0.6;
   filter: blur(50px);
   animation: bgcolor 4.5s infinite ease;
-}
-.about {
-  position: relative;
-  background: linear-gradient(90deg, #005bff 0%, #e05bf4 98.96%);
-  line-height: 1.5rem;
-  gap: 20px;
-  transition: all 1s ease;
-  padding-bottom: 30px;
-}
-.about .about-content {
-  margin-top: 6rem;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  padding-right: 50px;
-  color: #fff;
-}
-.about .about-content h2 {
-  font-weight: 600;
-  font-size: xx-large;
-  text-transform: uppercase;
-}
-.about .about-content p {
-  margin-top: 1rem;
-  font-size: 1rem;
 }
 .guidlines {
   margin-top: 2rem;

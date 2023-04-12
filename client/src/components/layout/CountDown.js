@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "tachyons";
 
 const CountDown = () => {
   const targetDate = new Date("April 12, 2023 10:00:00").getTime();
   const [remainingTime, setRemainingTime] = useState(targetDate - new Date().getTime());
+  const navigate=useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -27,7 +29,8 @@ const CountDown = () => {
 
   return (
     <div className="countdown">
-      <h1><b>Registration is open now</b></h1>
+      <h1 style={{textAlign:'center'}}><b>Registration is open now</b></h1>
+      <button className="btn btn-secondary" onClick={() => navigate("/register")}>Register Now</button>
       {/* <h1>Coming Soon</h1>
       <div className="countdown-time">
         <div className="card bg-gray">

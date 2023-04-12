@@ -96,7 +96,7 @@ const Landing = ({ contact, about }) => {
             <br />
             Uxplore 1.0?
           </h1>
-          <div className='hidden right'>
+          <div id='about-des' className='hidden right'>
             <h2>What is Mora UXplore 1.0?</h2>
             <p style={{ lineHeight: '2' }}>
               Mora UXplore 1.0 is an event initiated by the IEEE Student Branch
