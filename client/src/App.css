@@ -292,6 +292,9 @@ p {
   .btn{
     padding: 7px 15px  !important;
   }
+  .register{
+    min-width: 0 !important;
+  }
 }
 svg {
   position: relative;
@@ -960,7 +963,7 @@ section .countdown h1 {
   display: block;
   width: 100%;
   padding: 0.4rem;
-  font-size: 1.2rem;
+  font-size: inherit;
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 10px;
@@ -1555,6 +1558,7 @@ section .countdown h1 {
   position: relative;
   text-align: center;
   margin: auto;
+  min-width: 800px;
   border: 1px solid rgba(0, 0, 0, 0.201);
   box-shadow: 0 2px 40px rgba(0, 0, 0, 0.233);
   padding: 20px 70px;

@@ -133,8 +133,13 @@ function TeamRegister() {
 
   return (
     <Fragment>
-      <section className="container-center">
-        <div className="register">
+      <section className="container-center" style={{
+    height: "auto"
+}}>
+        <div className="register " style={{
+    marginTop: "6rem",
+    marginBottom: "3rem",
+}}>
           <h1
             style={{
               textAlign: "center",
@@ -158,7 +163,7 @@ function TeamRegister() {
                 onChange={(e) => setUniversity(e.target.value)}
               />
             </div>
-            <div className="input-group">
+            <div className="input-group mt-1">
               <label htmlFor="name1">Team Member 1 (Leader)</label>
               <input
                 type="text"
@@ -182,7 +187,7 @@ function TeamRegister() {
                 onChange={(e) => setT01contact(e.target.value)}
               />
             </div>
-            <div className="input-group">
+            <div className="input-group mt-1">
               <label htmlFor="name2">Team Member 2</label>
               <input
                 type="text"
@@ -199,7 +204,7 @@ function TeamRegister() {
                 onChange={(e) => setT02university_index(e.target.value)}
               />
             </div>
-            <div className="input-group">
+            <div className="input-group mt-1">
               <label htmlFor="name3">Team Member 3</label>
               <input
                 type="text"
@@ -229,7 +234,7 @@ function TeamRegister() {
           {alert}
         </div>
       </section>
-      <style jsx>{`
+      {/* <style jsx>{`
         .container-center {
           display: flex;
           justify-content: center;
@@ -277,7 +282,7 @@ function TeamRegister() {
           cursor: pointer;
           transition: all 0.3s ease;
         }
-      `}</style>
+      `}</style> */}
     </Fragment>
   );
 }
