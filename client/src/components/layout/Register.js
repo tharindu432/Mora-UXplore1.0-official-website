@@ -182,7 +182,7 @@ function Register() {
             style={{ marginRight: "5px", color: "#FFFFFF" }}
           />
           <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
-            Please check your email to verify
+            Please check your inbox/spam to verify your email
           </span>
         </CAlert>
       );
