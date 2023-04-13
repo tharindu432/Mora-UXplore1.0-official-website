@@ -30,7 +30,7 @@ const CountDown = () => {
   return (
     <div className="countdown">
       <h1 style={{textAlign:'center'}}><b>Registration is open now</b></h1>
-      <button className="btn btn-secondary" onClick={() => navigate("/register")}>Register Now</button>
+      <button style={{fontSize:'1.7rem',borderWidth:'5px',margin:'25px auto'}} className="btn btn-secondary" onClick={() => navigate("/register")}>Register Now</button>
       {/* <h1>Coming Soon</h1>
       <div className="countdown-time">
         <div className="card bg-gray">
