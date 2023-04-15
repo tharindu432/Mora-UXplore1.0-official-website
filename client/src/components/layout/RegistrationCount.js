@@ -30,7 +30,7 @@ function RegistrationCount() {
         <div className="count-label"><i class="fa fa-university" aria-hidden="true"></i>
  <br/>Universities Registered</div>
         {/* <div className="count-number">14</div> */}
-        <CountUp style={{color: '#d557e8'}} duration={5} end={20} className="count-number"/>
+        <CountUp style={{color: '#d557e8'}} duration={5} end={14} className="count-number"/>
       </div>
     </div>
   );

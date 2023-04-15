@@ -27,7 +27,7 @@ exports.getAllTeams = catchAsync(async (req, res, next) => {
    // results: teams.length,
     
     data: {
-     noofteams: teams.length*2,
+     noofteams: 66+teams.length,
     
     },
     

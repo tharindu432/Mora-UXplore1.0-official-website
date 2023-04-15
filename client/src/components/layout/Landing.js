@@ -75,8 +75,10 @@ const Landing = ({ contact, about }) => {
             />
           </svg>
         </div>
+        
       <RegistrationCount/>
-        <CountDown/>
+      <CountDown/>
+        
         
       </section>
       <section ref={about} id='about' className='about '>
