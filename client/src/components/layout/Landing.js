@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect } from 'react';
 import CountDown from './CountDown';
+import RegistrationCount from './RegistrationCount';
 
 const Landing = ({ contact, about }) => {
   const observer = new IntersectionObserver((entries) => {
@@ -74,8 +75,10 @@ const Landing = ({ contact, about }) => {
             />
           </svg>
         </div>
-        <CountDown />
+        <CountDown/>
+        
       </section>
+      <RegistrationCount/>
       <section ref={about} id='about' className='about '>
         <div className='custom-shape-divider-top-1679898776'>
           <svg

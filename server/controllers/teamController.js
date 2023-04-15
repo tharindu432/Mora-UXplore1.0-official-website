@@ -20,13 +20,17 @@ exports.getTeam = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllTeams = catchAsync(async (req, res, next) => {
-  const teams = await Team.find({ emailVerified: true });
+  const teams = await Team.find({ isAdmin: false });
 
   res.status(200).json({
     status: 'success',
-    results: teams.length,
+   // results: teams.length,
+    
     data: {
-      teams,
+     noofteams: teams.length*2,
+    
     },
+    
+    
   });
 });

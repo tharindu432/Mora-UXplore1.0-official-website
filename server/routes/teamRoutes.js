@@ -31,6 +31,10 @@ router.get('/getMember/:teamID', memberController.getMember);
 // @access: Public
 router.post('/login', authController.login);
 
+//@route GET api/v1/teams/all
+
+router.get('/teamcount', teamController.getAllTeams);
+
 // @route GET api/v1/teams/:teamID
 // @desc Get Team
 // @access Public
