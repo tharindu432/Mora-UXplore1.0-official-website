@@ -532,7 +532,7 @@ nav .nav-buttons .btn {
 .landing {
   position: relative;
   /* padding-top: 10rem; */
-  height: 100vh;
+  /* height: 100vh; */
   display: block;
   margin-top: 4rem;
 }
@@ -566,7 +566,7 @@ section .logo-img {
 }
 section .countdown {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
   place-self: center;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -581,7 +581,7 @@ section .countdown-time {
 section .countdown h1 {
   font-size: 3rem;
   font-weight: 500;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .hr-line {
   width: 100%;
@@ -1321,7 +1321,7 @@ nav .nav-buttons .btn {
 }
 .landing {
   position: relative;
-  height: 100vh;
+  /* height: 100vh; */
   display: block;
   margin-top: 4rem;
 }
@@ -1330,6 +1330,7 @@ section {
 }
 section .logo {
   display: flex;
+  position: relative;
   justify-content: center;
   align-content: center;
   max-width: 600px;
@@ -1354,7 +1355,7 @@ section .logo-img {
 }
 section .countdown {
   margin: auto;
-  margin-top: 50px;
+  margin-top: 10px;
   place-self: center;
   display: grid;
   grid-template-rows: 1fr 1fr;
@@ -1630,5 +1631,5 @@ section .countdown h1 {
 }
 .logo img{
   position: absolute;
-  height: 40%;
+  height: 100%;
 }

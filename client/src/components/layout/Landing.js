@@ -75,10 +75,10 @@ const Landing = ({ contact, about }) => {
             />
           </svg>
         </div>
+      <RegistrationCount/>
         <CountDown/>
         
       </section>
-      <RegistrationCount/>
       <section ref={about} id='about' className='about '>
         <div className='custom-shape-divider-top-1679898776'>
           <svg
