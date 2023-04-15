@@ -544,7 +544,7 @@ section .logo {
   justify-content: center;
   align-content: center;
   max-width: 600px;
-  margin: 60px auto;
+  margin: 30px auto;
   height:40%;
 }
 section .logo-img {
@@ -579,7 +579,7 @@ section .countdown-time {
   margin: 0 auto;
 }
 section .countdown h1 {
-  font-size: 3rem;
+  font-size: 2.3rem;
   font-weight: 500;
   margin: 10px auto;
 }
@@ -1368,7 +1368,7 @@ section .countdown-time {
   margin: 0 auto;
 }
 section .countdown h1 {
-  font-size: 3rem;
+  font-size: 2.3rem;
   font-weight: 500;
   margin: 20px auto;
 }

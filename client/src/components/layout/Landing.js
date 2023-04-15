@@ -117,7 +117,7 @@ const Landing = ({ contact, about }) => {
       <section className='guidlines text-primary' id='guidelines'>
         <div>
           <h2 className='hidden top'>guidelines</h2>
-          <div className='hidden top'>
+          <div className='hidden left'>
             <ul>
               <li>
                 All the participants must be undergraduates and should be from
