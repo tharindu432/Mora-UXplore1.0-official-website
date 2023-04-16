@@ -251,6 +251,14 @@ p {
   margin-top: 5px;
   font-size: 0.75rem;
 }
+
+.input-group  {
+  text-align: left;
+}
+
+.input-group label{
+  /* font-size: 1.1rem !important; */
+}
 @media (max-width: 840px) {
   body {
     font-size: 0.7rem !important;
@@ -292,10 +300,10 @@ p {
   .container {
     grid-template-columns: 1fr !important;
   }
-  .btn{
-    padding: 7px 15px  !important;
+  .btn {
+    padding: 7px 15px !important;
   }
-  .register{
+  .register {
     min-width: 0 !important;
   }
 }
@@ -545,7 +553,7 @@ section .logo {
   align-content: center;
   max-width: 600px;
   margin: 30px auto;
-  height:40%;
+  height: 40%;
 }
 section .logo-img {
   -webkit-mask-box-image: url("./img/Logo\ 2.svg");
@@ -699,9 +707,8 @@ section .countdown h1 {
   color: #fff;
 }
 
-#about-des{
-  margin:auto;
-
+#about-des {
+  margin: auto;
 }
 
 .about .about-content h2 {
@@ -1045,7 +1052,6 @@ p {
   .timeline-card:nth-child(even)::before {
     left: 46.5% !important;
     top: -15px !important;
-
   }
   .timeline-card:nth-child(odd)::before {
     left: 47.5% !important;
@@ -1073,7 +1079,7 @@ p {
     justify-content: center;
   }
 
-  .about{
+  .about {
     height: auto !important;
   }
   .about .about-content {
@@ -1082,8 +1088,8 @@ p {
     padding: 0 10px !important;
     margin-top: 6rem !important;
   }
-  .about .about-content p{
-    padding:0 5px;
+  .about .about-content p {
+    padding: 0 5px;
     padding-right: 5px !important;
   }
 }
@@ -1629,7 +1635,7 @@ section .countdown h1 {
   padding: 3px;
   border: 2px dotted #005bff;
 }
-.logo img{
+.logo img {
   position: absolute;
   height: 100%;
 }
