@@ -49,4 +49,11 @@
     background-color: #333;
     animation: bgcolor 4.5s infinite ease;
   }
+
+  @media(max-width:768px){
+    .count-card{
+      margin: 0 10px;
+      padding: 10px 10px;
+    }
+  }
   

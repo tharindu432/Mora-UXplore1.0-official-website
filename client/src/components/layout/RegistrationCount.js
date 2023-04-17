@@ -24,13 +24,13 @@ function RegistrationCount() {
       <div className="count-card">
         <div className="count-label"><i class="fa fa-users" aria-hidden="true"></i> <br/>Teams Registered</div>
         {/* <div className="count-number">{teamCount !== null ? teamCount : 'Loading...'}</div> */}
-        <CountUp style={{color: '#005bff'}} duration={5} end={teamCount} className="count-number" suffix=' +'/>
+        <CountUp style={{color: '#005bff'}} duration={5} end={Math.floor(teamCount/10)*10} className="count-number" suffix=' +'/>
       </div>
       <div className="count-card">
         <div className="count-label"><i class="fa fa-university" aria-hidden="true"></i>
  <br/>Universities Registered</div>
         {/* <div className="count-number">14</div> */}
-        <CountUp style={{color: '#d557e8'}} duration={7} end={14} className="count-number" suffix=' +'/>
+        <CountUp style={{color: '#d557e8'}} duration={7} end={Math.floor(14/10)*10} className="count-number" suffix=' +'/>
       </div>
     </div>
   );
