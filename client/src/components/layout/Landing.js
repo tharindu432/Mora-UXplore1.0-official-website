@@ -125,7 +125,7 @@ const Landing = ({ contact, about }) => {
                 All the participants must be undergraduates and should be from
                 the same university.
               </li>
-              <li>One team should consist of a maximum of up to 3 members.</li>
+              <li>One team should consist of 3 members.</li>
               <li>
                 All interested teams must register for the event before the
                 deadline specified by the organizing committee.
