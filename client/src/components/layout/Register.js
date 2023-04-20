@@ -114,44 +114,134 @@ function Register() {
       body: JSON.stringify({ teamName: username, email: email }),
     });
     const data = await response.json();
-    //console.log(data);
+    let resMessage=data.message;
+    //console.log(resMessage);
+   
+    
+   // console.log(data);
     // you can handle the response data here, such as showing a success message to the user
-    if (response.ok === false) {
-      setAlert(
-        <CAlert
-          className="my-alert"
-          color="danger"
-          variant="solid"
-          style={{
-            backgroundColor: "#F44336",
-            color: "#FFFFFF",
-            border: "none",
-            borderRadius: "10px",
-            padding: "20px",
-            boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "fixed",
-            top: "0",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: "999", // add this property
-            width: "40%",
-            marginTop: "100px",
-            marginRight: "150px",
-          }}
-        >
-          <FaExclamationCircle
-            size={30}
-            style={{ marginRight: "5px", color: "#FFFFFF" }}
-          />
-          <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
-            Registration failed
-          </span>
-        </CAlert>
-      );
-    } else {
+    
+    if (response.ok === false ) {
+      if(resMessage.includes("E11000 duplicate key error collection: test.teams index: teamName")){
+        setAlert(
+          <CAlert
+            className="my-alert"
+            color="danger"
+            variant="solid"
+            style={{
+              backgroundColor: "#F44336",
+              color: "#FFFFFF",
+              border: "none",
+              borderRadius: "10px",
+              padding: "20px",
+              boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "fixed",
+              top: "0",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: "999", // add this property
+              width: "40%",
+              marginTop: "100px",
+              marginRight: "150px",
+            }}
+          >
+            <FaExclamationCircle
+              size={30}
+              style={{ marginRight: "5px", color: "#FFFFFF" }}
+            />
+            <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
+              This Team name has already been taken!
+            </span>
+          </CAlert>
+        );
+      }
+      else if(resMessage.includes("E11000 duplicate key error collection: test.teams index: email")){
+        setAlert(
+          <CAlert
+            className="my-alert"
+            color="danger"
+            variant="solid"
+            style={{
+              backgroundColor: "#F44336",
+              color: "#FFFFFF",
+              border: "none",
+              borderRadius: "10px",
+              padding: "20px",
+              boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "fixed",
+              top: "0",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: "999", // add this property
+              width: "40%",
+              marginTop: "100px",
+              marginRight: "150px",
+            }}
+          >
+            <FaExclamationCircle
+              size={30}
+              style={{ marginRight: "5px", color: "#FFFFFF" }}
+            />
+            <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
+              This Email has already been Registered!
+            </span>
+          </CAlert>
+        );
+      }
+      else{
+        setAlert(
+          <CAlert
+            className="my-alert"
+            color="danger"
+            variant="solid"
+            style={{
+              backgroundColor: "#F44336",
+              color: "#FFFFFF",
+              border: "none",
+              borderRadius: "10px",
+              padding: "20px",
+              boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "fixed",
+              top: "0",
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: "999", // add this property
+              width: "40%",
+              marginTop: "100px",
+              marginRight: "150px",
+            }}
+          >
+            <FaExclamationCircle
+              size={30}
+              style={{ marginRight: "5px", color: "#FFFFFF" }}
+            />
+            <span style={{ fontSize: "1rem", marginLeft: "5px" }}>
+              Registration failed
+            </span>
+          </CAlert>
+        );
+
+
+      }
+     
+    }
+      
+     
+     
+    
+    
+
+    
+  else {
       setAlert(
         <CAlert
           className="my-alert"
@@ -194,6 +284,7 @@ function Register() {
       setAlert(null);
     }, 10000);
   };
+
 
   return (
     <Fragment>
