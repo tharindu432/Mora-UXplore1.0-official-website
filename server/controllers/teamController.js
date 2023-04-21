@@ -1,6 +1,7 @@
 const Team = require('../models/teamModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
+const Email = require('../utils/email');
 
 exports.getTeam = catchAsync(async (req, res, next) => {
   const team = await Team.find({ _id: req.params.teamID }).populate(
@@ -24,13 +25,31 @@ exports.getAllTeams = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-   // results: teams.length,
-    
+    // results: teams.length,
+
     data: {
-     noofteams: teams.length,
-    
+      noofteams: teams.length,
     },
-    
-    
+  });
+});
+
+//* SENDING VERIFICATION TOKEN REMINDER
+exports.sendReminderVerification = catchAsync(async (req, res, next) => {
+  const teams = await Team.find({ emailVerified: false });
+  if (!teams) {
+    return next(new AppError('All teams are verified', 404));
+  }
+
+  teams.map(async (team) => {
+    const activateToken = team.createActivationString();
+    const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
+    await new Email(team, activateURL).sendReminderVerificationToken();
+  });
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      noofteams: teams.length,
+    },
   });
 });

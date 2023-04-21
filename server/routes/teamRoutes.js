@@ -47,4 +47,13 @@ router.get('/:teamID', teamController.getTeam);
 
 // router.get('/get-team-names', teamController.getTeamNames);
 
+// @route: POST api/v1/teams/send-reminder-verification
+// @desc: Send Reminder Verification
+// @access: Public
+
+router.post(
+  '/send-reminder-verification',
+  teamController.sendReminderVerification
+);
+
 module.exports = router;
