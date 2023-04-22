@@ -58,6 +58,7 @@ exports.sendReminderVerification = catchAsync(async (req, res, next) => {
 //* SENDING VERIFICATION TOKEN REMINDER-ADVANCED
 exports.sendReminderVerificationAdvanced = catchAsync(
   async (req, res, next) => {
+    let count = 0;
     // 01.) Get teams those emails are not verified
     const teams = await Team.find({ emailVerified: false });
 
@@ -72,13 +73,15 @@ exports.sendReminderVerificationAdvanced = catchAsync(
 
     teams2.map(async (team) => {
       const membersAvailable = await Member.find({ team: team._id });
-      if (!membersAvailable) {
+      if (membersAvailable.length === 0) {
+        console.log(team.teamName);
         const activateToken = team.createActivationString();
         const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
         await new Email(team, activateURL).sendReminderVerificationToken();
 
         team.emailVerified = false;
         await team.save({ validateBeforeSave: false });
+        count += 1;
       }
     });
 
@@ -86,7 +89,7 @@ exports.sendReminderVerificationAdvanced = catchAsync(
       status: 'success',
       data: {
         notemailverified: teams.length,
-        notmembersadded: teams2.length,
+        notmembersadded: count,
       },
     });
   }
