@@ -56,4 +56,13 @@ router.post(
   teamController.sendReminderVerification
 );
 
+// @route: POST api/v1/teams/send-reminder-verification-advanced
+// @desc: Send Reminder Verification Advanced
+// @access: Public
+
+router.post(
+  '/send-reminder-verification-advanced',
+  teamController.sendReminderVerificationAdvanced
+);
+
 module.exports = router;

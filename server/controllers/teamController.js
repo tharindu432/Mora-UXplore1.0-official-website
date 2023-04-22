@@ -1,4 +1,5 @@
 const Team = require('../models/teamModel');
+const Member = require('../models/memberModel');
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const Email = require('../utils/email');
@@ -53,3 +54,40 @@ exports.sendReminderVerification = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+//* SENDING VERIFICATION TOKEN REMINDER-ADVANCED
+exports.sendReminderVerificationAdvanced = catchAsync(
+  async (req, res, next) => {
+    // 01.) Get teams those emails are not verified
+    const teams = await Team.find({ emailVerified: false });
+
+    teams.map(async (team) => {
+      const activateToken = team.createActivationString();
+      const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
+      await new Email(team, activateURL).sendReminderVerificationToken();
+    });
+
+    // 02.) Get teams those emails are verified and not added members
+    const teams2 = await Team.find({ emailVerified: true, isAdmin: false });
+
+    teams2.map(async (team) => {
+      const membersAvailable = await Member.find({ team: team._id });
+      if (!membersAvailable) {
+        const activateToken = team.createActivationString();
+        const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
+        await new Email(team, activateURL).sendReminderVerificationToken();
+
+        team.emailVerified = false;
+        await team.save({ validateBeforeSave: false });
+      }
+    });
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        notemailverified: teams.length,
+        notmembersadded: teams2.length,
+      },
+    });
+  }
+);
