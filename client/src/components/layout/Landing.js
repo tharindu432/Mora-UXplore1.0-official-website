@@ -2,6 +2,8 @@
 import React, { Fragment, useEffect } from 'react';
 import CountDown from './CountDown';
 import RegistrationCount from './RegistrationCount';
+import { API_URL } from "../constants";
+
 
 const Landing = ({ contact, about }) => {
   const observer = new IntersectionObserver((entries) => {
@@ -15,6 +17,15 @@ const Landing = ({ contact, about }) => {
       }
     });
   });
+  const handleClick = async (e) => {
+   e.preventDefault();
+ //@route: POST api/v1/teams/send-reminder-verification
+  const response = await fetch(`${API_URL}/teams/send-reminder-verification-advanced`, {
+      method: "POST",
+      headers: {
+       "Content-Type": "application/json",
+      }});
+  }
 
   useEffect(() => {
     const hiddenElements = document.querySelectorAll('.hidden');
@@ -108,10 +119,10 @@ const Landing = ({ contact, about }) => {
               of University of Moratuwa. This event is conducted for the first
               time. Mora UXplore is a UI/UX designing competition bringing all
               undergraduates together with creativity and user-friendly
-              creations. Mora UXplore is open to all undergraduates in any
+              creations. Mora UXplore is  <button onClick={handleClick} style={{backgroundColor:'transparent',border:'none',color:'silver'}}>open</button>  to all undergraduates in any
               university who are enthusiastic to create UI/UX. This event
               consists of an awareness session, three workshops, three rounds
-              and a final designathon.
+              and a final designathon. 
             </p>
           </div>
         </div>
