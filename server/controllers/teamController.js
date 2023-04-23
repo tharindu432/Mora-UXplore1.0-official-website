@@ -74,7 +74,7 @@ exports.sendReminderVerificationAdvanced = catchAsync(
     teams2.map(async (team) => {
       const membersAvailable = await Member.find({ team: team._id });
       if (membersAvailable.length === 0) {
-        console.log(team.teamName);
+       // console.log(team.teamName);
         const activateToken = team.createActivationString();
         const activateURL = `${process.env.FRONTEND_HOST}/activate/${activateToken}`;
         await new Email(team, activateURL).sendReminderVerificationToken();
